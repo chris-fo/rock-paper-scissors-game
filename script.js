@@ -58,13 +58,16 @@ function game() {
   let computerScore = 0;
   for (let i=0; i<5; i++) {
     let computerSelection = computerPlay();
-    let playerSelection = window.prompt('Please enter your choice of rock, paper or scissors:');
+    let playerSelection = window.prompt('Please enter your choice of rock,' +
+        'paper or scissors:');
     // sanitize input
-    playerSelection = playerSelection[0].toUpperCase() + playerSelection.substring(1).toLowerCase();
+    playerSelection = playerSelection[0].toUpperCase() + playerSelection
+        .substring(1).toLowerCase();
     let result = playRound(playerSelection, computerSelection);
     switch (result) {
       case WIN: {
-        console.log(`You win this round! ${playerSelection} beats ${computerSelection}.`);
+        console.log(`You win this round! ${playerSelection} beats ` + 
+            `${computerSelection}.`);
         playerScore++;
         break;
       }
@@ -75,13 +78,15 @@ function game() {
         break;
       }
       case LOSS: {
-        console.log(`You lose this round! ${computerSelection} beats ${playerSelection}.`);
+        console.log(`You lose this round! ${computerSelection} beats` + 
+            `${playerSelection}.`);
         computerScore++;
       }
     }
   }
   console.log(`Player: ${playerScore} - Computer: ${computerScore}`);
-  console.log(playerScore > computerScore ? 'You won!' : ( playerScore===computerScore ? 'Tie!' : 'You lost!'));
+  console.log(playerScore > computerScore ? 'You won!' : 
+      ( playerScore===computerScore ? 'Tie!' : 'You lost!'));
 }
 
 game();
